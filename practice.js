@@ -182,3 +182,38 @@ for (e of o.entries()) {
     log(e[0]);
   }
 }
+
+a = 11;
+b = 22;
+log(`a is ${a}; b is ${b}`);
+a = a + b;
+log(`a is ${a}; b is ${b}`);
+b = a - b;
+log(`a is ${a}; b is ${b}`);
+a = a - b;
+log(`a is ${a}; b is ${b}`);
+
+//my fib series, add a and b; make b as the sum (which is the val) and then
+// recompute a as total - a (old a)
+function fib(x) {
+  fiblist = [];
+  // add = (a) => {return a.reduce((o,e)=>o+e)}
+  a = 0;
+  b = 1;
+  fiblist.unshift(0, 1);
+  //since we added 2 in the beginning
+  while (x - 2 > 0) {
+    x--;
+    // log(a + b);
+    b = a + b;
+    a = b - a;
+    // log(b)
+    fiblist.push([b, parseFloat((b / a).toFixed(5))]);
+    // log(`a is ${a}; b is ${b}`);
+  }
+  return fiblist;
+}
+
+log(fib(100));
+
+218922995834555169026;
