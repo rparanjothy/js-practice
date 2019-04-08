@@ -204,7 +204,7 @@ function fib(x) {
   //since we added 2 in the beginning
   while (x - 2 > 0) {
     x--;
-    // log(a + b);
+    // log(`a:${a} b:${b} o:${a + b}`);
     b = a + b;
     a = b - a;
     // log(b)
@@ -214,6 +214,17 @@ function fib(x) {
   return fiblist;
 }
 
-log(fib(100));
+log(fib(10));
 
-218922995834555169026;
+// 218922995834555169026;
+
+function fac(a, x, ct) {
+  if (ct > 0) {
+    // log(x);
+    log(`a:${a},b:${x},fac:${a * x},ct:${ct}`);
+    // ct -= 1;
+    fac(a * x, ++x, --ct);
+  }
+}
+
+log(fac(1, 1, 9));
