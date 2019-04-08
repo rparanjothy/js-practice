@@ -153,10 +153,32 @@ aa.forEach(q => log(q));
 
 //any number of args like (sum)
 function u(...a) {
-   a.map(q => log(q))
-  return a.reduce((o,e)=>o+e);
+  a.map(q => log(q));
+  return a.reduce((o, e) => o + e);
 }
 
-u(1,2,3,4,5,6,7)
+u(1, 2, 3, 4, 5, 6, 7);
 
-log(u(1,2,3,4,5,6,7))
+log(u(1, 2, 3, 4, 5, 6, 7));
+
+function getAverage(...e) {
+  t = e.reduce((acc, element) => acc + element.length, 0);
+  log(t / e.length);
+}
+
+getAverage("ram", "ramk", "rishi");
+
+// Given an unsorted array which has a number in the majority (a number appears more than 50% in the array), find that number?(Solution)
+a = [1, 1, 1, 1, 1, 1, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 3, 4, 5, 6];
+o = new Map();
+// a.forEach(e=>o[e]=o[e]?o[e]+1:1)
+const l = a.length / 2;
+log(l);
+a.forEach(e => (o.has(e) ? o.set(e, o.get(e) + 1) : o.set(e, 1)));
+log(o);
+
+for (e of o.entries()) {
+  if (e[1] > l) {
+    log(e[0]);
+  }
+}
