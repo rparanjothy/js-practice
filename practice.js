@@ -68,7 +68,7 @@ log(`age is now ${age}`);
 /////////
 
 // Array slicing
-// slice is destructive
+// slice is not destructive
 log("------ Slicing -------");
 age = [1, 2, 3, 4, 5];
 log(age);
