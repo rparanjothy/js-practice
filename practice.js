@@ -256,3 +256,13 @@ counter("t1", 700);
 counter("t2", 100);
 
 // counter("timer2", 300);
+
+//duplicate
+function dup(a){
+    a.push(...a)
+    return a
+}
+
+
+console.log(dup([1,2,3,4,5,]))
+
