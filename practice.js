@@ -1,6 +1,6 @@
 const log = m => {
   if (m) {
-    document.body.innerHTML = m;
+    // document.body.innerHTML = m;
     log2(m);
   }
 };
@@ -228,3 +228,22 @@ function fac(a, x, ct) {
 }
 
 log(fac(1, 1, 9));
+
+//closures
+// its like a new instance of a function which has its method and you set that for each call.
+
+const counter = (e,sec) => {
+  console.log("Starting Counter");
+  var i = 0;
+  const timer = () => {
+    setInterval(() => {
+      i++;
+      console.log(`I counted ${i}`);
+      document.getElementById(e).innerHTML=`<b> ${i}</b>`;
+    }, sec);
+  };
+  timer(sec);
+};
+
+counter("t1",345);
+counter("timer2",1000);

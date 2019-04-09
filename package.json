@@ -1,0 +1,20 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "practice2.js",
+  "scripts": {
+    "start": "node practice2.js",
+    "dev":"nodemon practice2.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rparanjothy/js-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rparanjothy/js-practice/issues"
+  },
+  "homepage": "https://github.com/rparanjothy/js-practice#readme"
+}
