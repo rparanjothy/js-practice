@@ -243,9 +243,10 @@ const counter = (e, sec) => {
       } else {
         i = 0;
       }
-    //   console.log(`I counted ${i} ${maxed}`);
+      //   console.log(`I counted ${i} ${maxed}`);
       document.getElementById(e).innerHTML = `<b> ${i}</b>`;
-      document.getElementById(e).style.backgroundColor = `rgb(${i},${105-i},${i + 50})`;
+      document.getElementById(e).style.backgroundColor = `rgb(${i},${105 -
+        i},${i + 50})`;
       document.getElementById(e).style.paddingTop = `${i}px`;
     }, sec);
   };
@@ -258,11 +259,122 @@ counter("t2", 100);
 // counter("timer2", 300);
 
 //duplicate
-function dup(a){
-    a.push(...a)
-    return a
+function dup(a) {
+  a.push(...a);
+  return a;
 }
 
+console.log(dup([1, 2, 3, 4, 5]));
 
-console.log(dup([1,2,3,4,5,]))
+// object destructuring
+const data = {
+  name: "ram",
+  age: 18
+};
 
+//need var keyword for this to work;
+var { name } = data;
+
+log(name);
+
+//swap using unpacking
+a = 10;
+b = 20;
+[b, a] = [a, b];
+log(a);
+log(b);
+
+//unpacking with a literal instead of an object, however, the local variables needs to be defined.
+var a, b;
+({ name, age } = { name: 3, age: 5 });
+log(name);
+log(age);
+
+const info = {
+  name: "ram",
+  age: 18
+};
+
+//loading a prop into a new variable
+var { name: FullName } = info;
+log(FullName);
+
+//defaulting
+var { age = 10, name = "Rishi", zip = 78660 } = { name: "P", age: 33 };
+log(`${age} y/o ${name}`);
+
+//loop object
+for (key in data) {
+  log(data[key]);
+}
+
+Object.keys(data).forEach(e => {
+  log(`key:${e} val:${data[e]}`);
+  //   document.getElementById("t1").innerText = data[e];
+});
+
+//pick what yu need and ignore
+ages = [1, 2, 3, 4, 5, 6];
+const [, , , fourth] = ages;
+log(fourth);
+
+ages = [1, 2, 3, 4, 5, 6];
+const [first, second, ...c] = ages;
+log(first);
+log(second);
+
+const hitcounter = (function() {
+  var i = 0;
+  return function() {
+    return ++i;
+  };
+})();
+
+var add = (function() {
+  var counter = 0;
+  return function() {
+    counter += 1;
+    return counter;
+  };
+})();
+
+log(hitcounter());
+log(hitcounter());
+log(hitcounter());
+log(hitcounter());
+
+const hc = (() => {
+  var i = 0;
+  return () => {
+    return ++i;
+  };
+  // return add()
+})();
+
+log(hc());
+log(hc());
+
+
+//page counter with a clousure.
+// note: a var needs to be created for this function which is like an instance and then it keeps count
+
+const gg = () => {
+  i = 0;
+  return () => {
+    return ++i;
+  };
+};
+
+var G = gg()
+var B = gg()
+
+log("----")
+log(G())
+log(G())
+log(G())
+//even with B its referencing the same i from the prnt.
+log(B())
+log(B())
+
+
+// console.dir(G)
