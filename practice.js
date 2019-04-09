@@ -232,18 +232,27 @@ log(fac(1, 1, 9));
 //closures
 // its like a new instance of a function which has its method and you set that for each call.
 
-const counter = (e,sec) => {
+const counter = (e, sec) => {
   console.log("Starting Counter");
   var i = 0;
   const timer = () => {
     setInterval(() => {
-      i++;
-      console.log(`I counted ${i}`);
-      document.getElementById(e).innerHTML=`<b> ${i}</b>`;
+      maxed = false;
+      if (i < 255) {
+        i++;
+      } else {
+        i = 0;
+      }
+    //   console.log(`I counted ${i} ${maxed}`);
+      document.getElementById(e).innerHTML = `<b> ${i}</b>`;
+      document.getElementById(e).style.backgroundColor = `rgb(${i},${105-i},${i + 50})`;
+      document.getElementById(e).style.paddingTop = `${i}px`;
     }, sec);
   };
   timer(sec);
 };
 
-counter("t1",345);
-counter("timer2",1000);
+counter("t1", 700);
+counter("t2", 100);
+
+// counter("timer2", 300);
