@@ -354,7 +354,6 @@ const hc = (() => {
 log(hc());
 log(hc());
 
-
 //page counter with a clousure.
 // note: a var needs to be created for this function which is like an instance and then it keeps count
 
@@ -365,16 +364,25 @@ const gg = () => {
   };
 };
 
-var G = gg()
-var B = gg()
+var G = gg();
+var B = gg();
 
-log("----")
-log(G())
-log(G())
-log(G())
+log("----");
+log(G());
+log(G());
+log(G());
 //even with B its referencing the same i from the prnt.
-log(B())
-log(B())
-
+log(B());
+log(B());
 
 // console.dir(G)
+
+//curried functions? these are just chained functions
+
+const cfn = a => b => a + b;
+
+out=cfn(10)(30)
+log(out)
+
+const add10=cfn(10)
+log(add10(10))
